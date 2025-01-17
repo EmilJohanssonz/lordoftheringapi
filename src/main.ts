@@ -3,7 +3,6 @@ import { Quote } from "./types/quotes";
 import { Movie } from "./types/movies";
 import { Book, Chapter, middleEarthBooks } from "./types/books";
 
-
 // user test n console //////////////
 // // API-konfiguration
 const headers = {
@@ -66,7 +65,7 @@ const headers = {
 //     const movieData = await movieResponse.json();
 
 //     let movies = movieData.docs.splice(0, 2);
-    
+
 //     movieData.docs.forEach((movie: Movie) => {
 //       console.log(`- ${movie.name}`);
 //       console.log(`runtimeInMinutes: ${movie.runtimeInMinutes}`);
@@ -115,7 +114,9 @@ const fetchQuotes = async () => {
     const quoteUrl = "https://the-one-api.dev/v2/quote";
     const quoteResponse = await fetch(quoteUrl, { headers });
     if (!quoteResponse.ok) {
-      throw new Error(`Failed to fetch quotes. Status: ${quoteResponse.status}`);
+      throw new Error(
+        `Failed to fetch quotes. Status: ${quoteResponse.status}`,
+      );
     }
     const quoteData = await quoteResponse.json();
 
@@ -129,6 +130,6 @@ const fetchQuotes = async () => {
   } catch (error) {
     console.error("Error:", error);
   }
-}
+};
 
 await fetchQuotes();
