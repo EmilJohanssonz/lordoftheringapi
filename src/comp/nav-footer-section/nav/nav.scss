@@ -1,0 +1,240 @@
+@use "../../mixings/mixing font.scss" as *;
+
+.navHeader {
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+
+
+
+
+  .nav {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 60px;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+
+    &.active {
+      display: flex;
+    }
+  }
+
+  .nav img {
+    width: 50px;
+    height: auto;
+  }
+
+  .nav h1 {
+    @include bilbo-font;
+    color: #333;
+    font-size: 2.5rem;
+
+  }
+
+  .nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav ul li {
+    margin: 0 20px;
+  }
+
+  .nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    @include bilbo-font;
+    font-size: 1.8rem;
+  }
+
+  .nav ul li a.active {
+    border-bottom: 2px solid #FFD700;
+  }
+
+  .nav ul li a:hover {
+    color: #FFD700;
+  }
+
+  .logo {
+    background-image: url('/src/img/hobbitHole.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+}
+
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.heroText {
+  @include bilbo-font;
+  color: #fff;
+  font-size: 2.5rem;
+  margin: 0;
+  margin-bottom: 20px;
+}
+
+.cta {
+  padding: 10px 20px;
+  background-color: #FFD700;
+  border-radius: 8px;
+  border: none;
+  font-size: 1.5rem;
+  color: #333;
+  cursor: pointer;
+  @include bilbo-font;
+  opacity: 0.7;
+}
+
+.cta:hover {
+  background-color: #FFD700;
+  color: #fff;
+}
+
+.about {
+  background-color: #8E8640;
+  text-align: center;
+
+  h2 {
+    color: #fff;
+    font-size: 2.5rem;
+    margin: 0;
+    padding: 10px;
+    @include bilbo-font;
+  }
+
+  p {
+    font-family: monospace;
+    font-style: italic;
+    color: #fff;
+    font-size: 1.3rem;
+    margin: 0;
+    padding: 10px;
+  }
+
+}
+
+@media (max-width: 768px) {
+  .navHeader {
+    .nav {
+      height: 50px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      top: 20px;
+      width: 80%;
+      position: fixed;
+
+    }
+
+    .nav h1 {
+      font-size: 1.4rem;
+      margin-top: 40px;
+      color: #000000;
+      font-weight: bold;
+      margin: 0;
+      margin-left: 100px;
+    }
+
+    .logo img {
+      display: none;
+    }
+
+    .nav ul li a {
+      font-size: 1rem;
+    }
+    .hero {
+      top: 20%;
+    }
+
+    .heroText {
+      font-size: 1.6rem;
+    }
+
+    .cta {
+      font-size: 1.3rem;
+    }
+
+    .about h2 {
+      font-size: 2rem;
+    }
+
+    .about p {
+      font-size: 1.2rem;
+    }
+  }
+}
+
+@media (max-width: 900) {
+  .navHeader {
+    .nav {
+      height: 50px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      top: 20px;
+      width: 80%;
+      position: fixed;
+
+    }
+
+    .nav h1 {
+      font-size: 1.4rem;
+      margin-top: 40px;
+      color: #000000;
+      font-weight: bold;
+      margin: 0;
+      margin-left: 100px;
+    }
+
+    .logo img {
+      display: none;
+    }
+
+    .nav ul li a {
+      font-size: 1rem;
+    }
+    .hero {
+      top: 20%;
+    }
+
+    .heroText {
+      font-size: 1.6rem;
+    }
+
+    .cta {
+      font-size: 1.3rem;
+    }
+
+    .about h2 {
+      font-size: 2rem;
+    }
+
+    .about p {
+      font-size: 1.2rem;
+    }
+  }
+}

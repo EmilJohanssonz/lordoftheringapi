@@ -12,7 +12,6 @@ export interface Chapter {
   name: string;
 }
 
-
 export const middleEarthBooks: Book[] = [
   {
     id: "1",
@@ -43,8 +42,8 @@ export const middleEarthBooks: Book[] = [
   {
     id: "3",
     title: "The Battle of the Five Armies",
-name: "The Hobbit: The Battle of the Five Armies",
-author: "J.R.R. Tolkien",
+    name: "The Hobbit: The Battle of the Five Armies",
+    author: "J.R.R. Tolkien",
     chapters: [
       { id: "3-1", name: "Not at Home" },
       { id: "3-2", name: "Fire and Water" },
@@ -67,5 +66,3 @@ author: "J.R.R. Tolkien",
     ],
   },
 ];
-
-

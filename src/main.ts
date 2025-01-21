@@ -1,59 +1,21 @@
+import "./style.scss";
 import { Character } from "./types/Character";
 import { Quote } from "./types/quotes";
 import { Movie } from "./types/movies";
 import { Book, Chapter, middleEarthBooks } from "./types/books";
+import { headers } from "./comp/api/api";
 
-// user test n console //////////////
-// // API-konfiguration
-const headers = {
-  Accept: "application/json",
-  Authorization: `Bearer ${import.meta.env.VITE_API_KEY}`,
-};
-// const printMiddleEarthBooks = () => {
-//   middleEarthBooks.forEach((book) => {
-//     console.log(`Book: ${book.title}`);
-//     book.chapters.forEach((chapter) => {
-//       console.log(`  - Chapter: ${chapter.name}`);
-//     });
-//   });
-// };
+// nav
+import { renderNav } from "./comp/nav-footer-section/nav/nav";
+renderNav();
 
-// printMiddleEarthBooks();
+// books
 
-// const fetchAllBooksAndChapters = async () => {
-//   try {
-//     // Hämta alla böcker
-//     const bookUrl = "https://the-one-api.dev/v2/book";
-//     const bookResponse = await fetch(bookUrl, { headers });
-//     if (!bookResponse.ok) {
-//       throw new Error(`Failed to fetch books. Status: ${bookResponse.status}`);
-//     }
-//     const bookData = await bookResponse.json();
+import { printMiddleEarthBooks, fetchAllBooksAndChapters} from "./comp/main/books/books";
+printMiddleEarthBooks();
+fetchAllBooksAndChapters();
 
-//     for (const book of bookData.docs) {
-//       console.log(`Book: ${book.name}`);
 
-//       // Hämta kapitel för varje bok
-//       const chapterResponse = await fetch(`${bookUrl}/${book._id}/chapter`, {
-//         headers,
-//       });
-//       if (!chapterResponse.ok) {
-//         throw new Error(
-//           `Failed to fetch chapters for book ${book.name}. Status: ${chapterResponse.status}`,
-//         );
-//       }
-//       const chapterData = await chapterResponse.json();
-//       console.log("Chapters:");
-//       chapterData.docs.forEach((chapter: Chapter) => {
-//         console.log(`- ${chapter.chapterName}`);
-//       });
-//     }
-//   } catch (error) {
-//     console.error("Error:", error);
-//   }
-// };
-
-// await fetchAllBooksAndChapters();
 
 // const fetchMovies = async () => {
 //   try {
@@ -109,27 +71,27 @@ const headers = {
 // }
 // await fetchCharacters();
 
-const fetchQuotes = async () => {
-  try {
-    const quoteUrl = "https://the-one-api.dev/v2/quote";
-    const quoteResponse = await fetch(quoteUrl, { headers });
-    if (!quoteResponse.ok) {
-      throw new Error(
-        `Failed to fetch quotes. Status: ${quoteResponse.status}`,
-      );
-    }
-    const quoteData = await quoteResponse.json();
+// const fetchQuotes = async () => {
+//   try {
+//     const quoteUrl = "https://the-one-api.dev/v2/quote";
+//     const quoteResponse = await fetch(quoteUrl, { headers });
+//     if (!quoteResponse.ok) {
+//       throw new Error(
+//         `Failed to fetch quotes. Status: ${quoteResponse.status}`,
+//       );
+//     }
+//     const quoteData = await quoteResponse.json();
 
-    let quotes = quoteData.docs.slice(0, 5);
+//     let quotes = quoteData.docs.slice(0, 5);
 
-    quotes.forEach((quote: Quote) => {
-      console.log(`Character: ${quote.character}`);
-      console.log(`Movie: ${quote.movie}`);
-      console.log(`- ${quote.dialog}`);
-    });
-  } catch (error) {
-    console.error("Error:", error);
-  }
-};
+//     quotes.forEach((quote: Quote) => {
+//       console.log(`Character: ${quote.character}`);
+//       console.log(`Movie: ${quote.movie}`);
+//       console.log(`- ${quote.dialog}`);
+//     });
+//   } catch (error) {
+//     console.error("Error:", error);
+//   }
+// };
 
-await fetchQuotes();
+// await fetchQuotes();
