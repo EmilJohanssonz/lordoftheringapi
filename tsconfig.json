@@ -14,7 +14,7 @@
     "lib": ["dom", "es2017"],
     "baseUrl": "./src",
     "paths": {
-      "@types/*": ["types/*"]
+      "@types/*": ["/types/*"]
     }
   },
   "include": ["src/**/*.ts", "src/**/*.tsx", "src/types/**/*.d.ts"],

@@ -1,0 +1,87 @@
+@use "../../mixings/mixing\ font.scss" as *;
+
+.movie-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 60px;
+
+  .button-container {
+display: flex;
+justify-content: space-around;
+flex-direction: row;
+gap: 200px;
+margin-bottom: 20px;
+margin-top: -75px;
+
+    button {
+        background-color: #333;
+          border: 1px solid #333;
+          color: #fff;
+          width: 50px; 
+          height: 50px; 
+          border-radius: 50%; 
+          display: flex;
+          align-items: center;
+          justify-content: center; 
+          padding: 0; 
+          font-size: 0.7rem;
+          cursor: pointer;
+    }
+  }
+
+  .movie-card {
+    background: linear-gradient(145deg, #ffffff, #f0f0f0);
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    text-align: center;
+    width: 700px;
+    height: auto;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+
+    &:hover {
+      box-shadow: 0 15px 25px rgba(0, 0, 0, 0.25);
+    }
+
+    .movie-image {
+      width: 100%;
+      height: auto;
+      border-bottom: 2px solid #ddd;
+      transition: transform 0.4s ease;
+
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+
+    h3,
+    p {
+      margin: 10px 15px;
+      padding: 0;
+    }
+
+    h3 {
+      font-size: 1.6rem;
+      @include bilbo-font;
+    }
+
+    p {
+      @include para-font;
+      margin-top: -5px;
+    }
+  }
+}
+
+// Responsiv design
+@media (max-width: 768px) {
+  .movie-container {
+    .movie-card {
+      width: 100%;
+      margin-bottom: 15px;
+    }
+  }
+}

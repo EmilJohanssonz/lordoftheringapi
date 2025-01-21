@@ -47,3 +47,28 @@
 // };
 
 // await fetchAllBooksAndChapters();
+
+// const fetchMovies = async () => {
+//   try {
+//     const movieUrl = "https://the-one-api.dev/v2/movie";
+//     const movieResponse = await fetch(movieUrl, { headers });
+//     if (!movieResponse.ok) {
+//       throw new Error(`Failed to fetch movies. Status: ${movieResponse.status}`);
+//     }
+//     const movieData = await movieResponse.json();
+
+//     let movies = movieData.docs.splice(0, 2);
+
+//     movieData.docs.forEach((movie: Movie) => {
+//       console.log(`- ${movie.name}`);
+//       console.log(`runtimeInMinutes: ${movie.runtimeInMinutes}`);
+//       console.log(`Academy Award nominations: ${movie.academyAwardNominations}`);
+//       console.log(`Academy Award wins: ${movie.academyAwardWins}`);
+//       console.log(`Budget in millions: ${movie.budgetInMillions}`);
+//       console.log(`Box office revenue in millions: ${movie.boxOfficeRevenueInMillions}`);
+//     });
+//   } catch (error) {
+//     console.error("Error:", error);
+//   }
+// }
+// await fetchMovies();
