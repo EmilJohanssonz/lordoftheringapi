@@ -57,43 +57,43 @@
   flex: 2;
   display: flex;
   flex-direction: column;
-  gap: 10px; // Mindre mellanrum mellan böckerna
+  gap: 10px; 
   max-width: 300px;
   border-radius: 8px;
   margin-bottom: -22px;
   flex-wrap: wrap;
   justify-content: flex-start;
-  padding-right: 30px; // Minska padding på högersidan
+  padding-right: 30px; 
 
   @media (max-width: 768px) {
     max-width: 100%;
     align-items: center;
-    justify-content: flex-start; // Får böckerna att staplas ordentligt
+    justify-content: flex-start; 
     margin-left: 0;
     padding-right: 0;
-    gap: 10px; // Mindre mellanrum mellan böckerna på mobil
+    gap: 10px; 
   }
 }
 
 .book {
   background-color: #97A69F;
   border-radius: 8px;
-  padding: 10px; // Minska padding för att göra bokkortet mindre
+  padding: 10px; 
   @include shadow;
   display: flex;
   flex-direction: column;
-  max-width: 250px; // Gör bokkortet mindre
+  max-width: 250px; 
   justify-content: center;
   margin-left: 0;
   cursor: pointer;
-  margin-bottom: 10px; // Mindre mellanrum mellan bokkort på desktop
+  margin-bottom: 10px; 
 
   @media (max-width: 768px) {
     max-width: 100%;
-    width: 80%; // Minska bokkortets bredd på mobil
+    width: 80%; 
     margin-left: 0;
     padding-bottom: 5px;
-    margin-bottom: 15px; // Mindre mellanrum mellan bokkort på mobil
+    margin-bottom: 15px; 
   }
 }
 
