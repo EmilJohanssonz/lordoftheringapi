@@ -66,12 +66,7 @@ export async function fetchAllBooksAndChapters() {
     const booksContainer = document.createElement("div");
     booksContainer.classList.add("books-container");
 
-    const bookHead = document.createElement("div");
-    bookHead.classList.add("bookHead");
-    bookHead.innerHTML = `
-      
-    `;
-    booksContainer.appendChild(bookHead);
+   
 
     const bookies = document.createElement("div");
     bookies.classList.add("bookies");
