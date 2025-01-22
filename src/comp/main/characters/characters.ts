@@ -1,7 +1,7 @@
-
 import { headers } from "../../api/api";
 import { Character } from "types/Character";
 
+// Felkod error (status 429)
 const fetchCharactersWithRetry = async (
   retries: number = 5,
   delay: number = 2000,
@@ -25,9 +25,16 @@ const fetchCharactersWithRetry = async (
     return [];
   }
 };
-await fetchCharactersWithRetry();
 
-// sök funktion
+// Funktion för att söka efter karaktärer
+const searchCharacters = async (searchTerm: string): Promise<Character[]> => {
+  const characters = await fetchCharactersWithRetry();
+  return characters.filter((character) =>
+    character.name?.toLowerCase().includes(searchTerm.toLowerCase()),
+  );
+};
+
+// skapar sökcontainer och resultatcontainer
 const searchContainer = document.createElement("div");
 searchContainer.className = "search-container";
 
@@ -45,9 +52,28 @@ resultsContainer.className = "results-container";
 
 searchContainer.appendChild(searchInput);
 searchContainer.appendChild(searchButton);
-document.body.appendChild(searchContainer);
-document.body.appendChild(resultsContainer);
 
+// Min räddare!!! Funktion för att sätta in element efter ett annat element
+const insertAfter = (newElement: HTMLElement, targetElement: HTMLElement) => {
+  targetElement.parentNode?.insertBefore(newElement, targetElement.nextSibling);
+};
+
+// Funktion för att sätta in sök- och resultatcontainer
+export const insertSearchAndResultsContainers = () => {
+  const movieContainer = document.querySelector(".movie-container");
+
+  if (movieContainer) {
+    // Om movie container finns, sätt in sökcontainer efter den
+    insertAfter(searchContainer, movieContainer as HTMLElement);
+    insertAfter(resultsContainer, searchContainer as HTMLElement);
+  } else {
+    // Annars sätt in sökcontainer och resultatcontainer i body
+    document.body.appendChild(searchContainer);
+    document.body.appendChild(resultsContainer);
+  }
+};
+
+// Funktion för att visa sökresultat
 export const displaySearchResults = async () => {
   const searchTerm = searchInput.value.trim();
 
@@ -59,7 +85,7 @@ export const displaySearchResults = async () => {
   resultsContainer.innerHTML = "<p>Loading...</p>";
 
   const results = await searchCharacters(searchTerm);
-  resultsContainer.innerHTML = "";
+  resultsContainer.innerHTML = ""; // Clear 
 
   if (results.length > 0) {
     results.forEach((character) => {
@@ -69,15 +95,15 @@ export const displaySearchResults = async () => {
       // karaktär information
       characterElement.innerHTML = `
         <h4>${character.name || "Unknown"}</h4>
-       <ul>
-       <li>Gender: ${character.gender || "Unknown"}</li>
-       <li>Race: ${character.race || "Unknown"}</li>
-       <li>Birth: ${character.birth || "Unknown"}</li>
-        <li>Death: ${character.death || "Unknown"}</li>
-        <li>Hair: ${character.hair || "Unknown"}</li>
-        <li>Height: ${character.height || "Unknown"}</li>
-        <li>Spouse: ${character.spouse || "Unknown"}</li>
-        <li>Wiki: ${character.wikiUrl || "Unknown"} </li>
+        <ul>
+          <li>Gender: ${character.gender || "Unknown"}</li>
+          <li>Race: ${character.race || "Unknown"}</li>
+          <li>Birth: ${character.birth || "Unknown"}</li>
+          <li>Death: ${character.death || "Unknown"}</li>
+          <li>Hair: ${character.hair || "Unknown"}</li>
+          <li>Height: ${character.height || "Unknown"}</li>
+          <li>Spouse: ${character.spouse || "Unknown"}</li>
+          <li>Wiki: <a href="${character.wikiUrl}" target="_blank">${character.wikiUrl || "Unknown"}</a></li>
         </ul>
       `;
 
@@ -95,13 +121,3 @@ searchInput.addEventListener("keypress", (event) => {
     displaySearchResults();
   }
 });
-
-const searchCharacters = async (searchTerm: string): Promise<Character[]> => {
-  const characters = await fetchCharactersWithRetry();
-  return characters.filter((character) =>
-    character.name?.toLowerCase().includes(searchTerm.toLowerCase()),
-  );
-};
-
-
-// TODO: Fixaså att sök funktionen hamnar bakom movie sectionen

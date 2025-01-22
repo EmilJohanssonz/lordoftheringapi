@@ -15,8 +15,8 @@ import { renderAllMovies} from "./comp/main/movies/movies";
 renderAllMovies();
 
 // character
-import { displaySearchResults } from "./comp/main/characters/characters";
-displaySearchResults();
+import { insertSearchAndResultsContainers } from "./comp/main/characters/characters";
+document.addEventListener("DOMContentLoaded", insertSearchAndResultsContainers);
 
 // const fetchQuotes = async () => {
 //   try {
