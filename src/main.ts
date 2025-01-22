@@ -11,40 +11,12 @@ fetchAllBooksAndChapters();
 
 
 //movies
-import { fetchMovies} from "./comp/main/movies/movies";
-fetchMovies();
+import { renderAllMovies} from "./comp/main/movies/movies";
+renderAllMovies();
 
-
-
-
-// const fetchCharacters = async () => {
-//   try {
-//     const characterUrl = "https://the-one-api.dev/v2/character";
-//     const characterResponse = await fetch(characterUrl, { headers });
-//     if (!characterResponse.ok) {
-//       throw new Error(
-//         `Failed to fetch characters. Status: ${characterResponse.status}`,
-//       );
-//     }
-//     const characterData = await characterResponse.json();
-
-//     let characters = characterData.docs.slice(0, 5);
-
-//     characters.forEach((character: Character) => {
-//       console.log(`- ${character.name}`);
-//       console.log(`Gender: ${character.gender}`);
-//       console.log(`Race: ${character.birth}`);
-//       console.log(`Death: ${character.death}`);
-//       console.log(`Hair: ${character.hair}`);
-//       console.log(`Height: ${character.height}`);
-//       console.log(`Spouse: ${character.spouse}`);
-//       console.log(`Wiki URL: ${character.wikiUrl}`);
-//     });
-//   } catch (error) {
-//     console.error("Error:", error);
-//   }
-// }
-// await fetchCharacters();
+// character
+import { displaySearchResults } from "./comp/main/characters/characters";
+displaySearchResults();
 
 // const fetchQuotes = async () => {
 //   try {

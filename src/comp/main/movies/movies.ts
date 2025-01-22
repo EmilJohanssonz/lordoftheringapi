@@ -1,7 +1,9 @@
 import { Movie } from "types/movies";
 import { headers } from "../../api/api";
 
-// Retry-funktion för att hantera API-fel (status 429)
+let cachedMovies: Movie[] | null = null; // Cache for storing movie data
+
+// Retry-funktion för att hantera API-fel (status 429) med exponential backoff
 const fetchMoviesWithRetry = async (
   retries: number = 5,
   delay: number = 2000,
@@ -10,14 +12,16 @@ const fetchMoviesWithRetry = async (
     const response = await fetch("https://the-one-api.dev/v2/movie", {
       headers,
     });
+
     if (!response.ok) {
       if (response.status === 429 && retries > 0) {
         console.warn("API rate limit exceeded. Retrying...");
         await new Promise((resolve) => setTimeout(resolve, delay));
-        return fetchMoviesWithRetry(retries - 1, delay);
+        return fetchMoviesWithRetry(retries - 1, delay * 2); // Exponential backoff
       }
       throw new Error(`Failed to fetch movies. Status: ${response.status}`);
     }
+
     const data = await response.json();
     return data.docs;
   } catch (error) {
@@ -26,16 +30,17 @@ const fetchMoviesWithRetry = async (
   }
 };
 
-export const fetchMovies = async (): Promise<Movie[]> => {
+// Fetch movies only if they are not cached
+const fetchMovies = async (): Promise<Movie[]> => {
+  if (cachedMovies) {
+    console.log("Returning cached movies");
+    return cachedMovies; // Return cached data if available
+  }
+
   try {
-    const response = await fetch("https://the-one-api.dev/v2/movie", {
-      headers,
-    });
-    if (!response.ok) {
-      throw new Error(`Failed to fetch movies. Status: ${response.status}`);
-    }
-    const data = await response.json();
-    return data.docs;
+    const movies = await fetchMoviesWithRetry();
+    cachedMovies = movies; // Cache the fetched movies
+    return movies;
   } catch (error) {
     console.error("Error fetching movies:", error);
     return [];
@@ -69,14 +74,12 @@ const sortMovies = (movies: Movie[]): Movie[] => {
   });
 };
 
-// Skapa filmrullande funktion
 const createMovieSlider = (movies: Movie[]) => {
   console.log("Creating movie slider with movies:", movies);
 
   const movieContainer = document.createElement("div");
   movieContainer.className = "movie-container";
 
-  // Skapa en div för att visa den aktuella filmen
   const movieCard = document.createElement("div");
   movieCard.className = "movie-card";
   movieContainer.appendChild(movieCard);
@@ -85,7 +88,7 @@ const createMovieSlider = (movies: Movie[]) => {
 
   const renderMovie = (index: number) => {
     const movie = movies[index];
-    const imageUrl = movieImages[movie._id] || "src/img/default.jpg"; // Hämta bild baserat på ID
+    const imageUrl = movieImages[movie._id] || "src/img/default.jpg";
 
     movieCard.innerHTML = `
       <img src="${imageUrl}" alt="${movie.name}" class="movie-image">
@@ -99,10 +102,8 @@ const createMovieSlider = (movies: Movie[]) => {
     `;
   };
 
-  // Initial rendering av första filmen
   renderMovie(currentIndex);
 
-  // Skapa nästa och föregående knappar
   const buttonContainer = document.createElement("div");
   buttonContainer.className = "button-container";
 
@@ -124,14 +125,12 @@ const createMovieSlider = (movies: Movie[]) => {
   buttonContainer.appendChild(nextButton);
   movieContainer.appendChild(buttonContainer);
 
-  // Ta bort den gamla filmen om den finns
   const existingMovieContainer = document.querySelector(".movie-container");
   if (existingMovieContainer) {
     console.log("Movie container already exists. Removing existing container.");
     existingMovieContainer.remove();
   }
 
-  // Lägg till filmen efter bokcontainern
   const bookContainer = document.querySelector(".books-container");
   if (bookContainer) {
     console.log("Inserting movie container after book container");
@@ -142,20 +141,17 @@ const createMovieSlider = (movies: Movie[]) => {
   }
 };
 
-const renderAllMovies = async () => {
+ export const renderAllMovies = async () => {
   const movies = await fetchMovies();
   console.log("Fetched movies:", movies);
 
   if (movies.length > 0) {
-    // Sortera filmerna i rätt ordning och filtrera bort oönskade
     const sortedMovies = sortMovies(movies).filter((movie) =>
       movieOrder.includes(movie._id),
     );
-
     createMovieSlider(sortedMovies);
   } else {
     console.error("No movies found");
   }
 };
 
-renderAllMovies();
