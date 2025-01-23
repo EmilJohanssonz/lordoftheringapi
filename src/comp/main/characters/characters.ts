@@ -38,20 +38,30 @@ const searchCharacters = async (searchTerm: string): Promise<Character[]> => {
 const searchContainer = document.createElement("div");
 searchContainer.className = "search-container";
 
+const searchTitle = document.createElement("h2");
+searchTitle.textContent = "Character in Middle-earth";
+
+const searchInputContainer = document.createElement("div");
+searchInputContainer.className = "search-input-container";
+
 const searchInput = document.createElement("input");
 searchInput.type = "text";
+searchInput.id = "characters";
 searchInput.placeholder = "Search for a character...";
 searchInput.className = "search-input";
 
 const searchButton = document.createElement("button");
-searchButton.textContent = "Search";
 searchButton.className = "search-button";
 
 const resultsContainer = document.createElement("div");
 resultsContainer.className = "results-container";
 
-searchContainer.appendChild(searchInput);
-searchContainer.appendChild(searchButton);
+searchInputContainer.appendChild(searchInput);
+searchInputContainer.appendChild(searchButton);
+
+searchContainer.appendChild(searchTitle);
+searchContainer.appendChild(searchInputContainer);
+searchContainer.appendChild(resultsContainer);
 
 // Min räddare!!! Funktion för att sätta in element efter ett annat element
 const insertAfter = (newElement: HTMLElement, targetElement: HTMLElement) => {

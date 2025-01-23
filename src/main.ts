@@ -1,7 +1,7 @@
 import "./style.scss";
 
 // nav
-import { renderNav } from "./comp/nav-footer-section/nav/nav";
+import { renderNav} from "./comp/nav-footer-section/nav/nav";
 renderNav();
 
 // books

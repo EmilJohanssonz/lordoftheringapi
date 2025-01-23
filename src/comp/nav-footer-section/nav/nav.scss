@@ -10,15 +10,15 @@
 
   .nav {
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
     height: 60px;
     width: 100%;
-    position: absolute;
+    position: fixed;
     top: 0;
-    left: 0;
     z-index: 10;
-
+    background-color: #333;
+    opacity: 0.7;
     &.active {
       display: flex;
     }
@@ -31,7 +31,7 @@
 
   .nav h1 {
     @include bilbo-font;
-    color: #333;
+    color: #fff;
     font-size: 2.5rem;
 
   }
@@ -138,25 +138,25 @@
 }
 
 @media (max-width: 768px) {
-  .navHeader {
+   .navHeader {
     .nav {
       height: 50px;
       display: flex;
       flex-direction: column;
       justify-content: center;
       top: 20px;
-      width: 80%;
       position: fixed;
 
     }
 
+   
     .nav h1 {
       font-size: 1.4rem;
       margin-top: 40px;
       color: #000000;
       font-weight: bold;
       margin: 0;
-      margin-left: 100px;
+      margin-left: 0;
     }
 
     .logo img {
@@ -166,6 +166,7 @@
     .nav ul li a {
       font-size: 1rem;
     }
+
     .hero {
       top: 20%;
     }
@@ -189,7 +190,7 @@
 }
 
 
-@media (max-width: 900) {
+@media (max-width: 910px) {
   .navHeader {
     .nav {
       height: 50px;
@@ -197,7 +198,7 @@
       flex-direction: column;
       justify-content: center;
       top: 20px;
-      width: 80%;
+      width: 96%;
       position: fixed;
 
     }
@@ -208,7 +209,6 @@
       color: #000000;
       font-weight: bold;
       margin: 0;
-      margin-left: 100px;
     }
 
     .logo img {
@@ -218,6 +218,7 @@
     .nav ul li a {
       font-size: 1rem;
     }
+
     .hero {
       top: 20%;
     }

@@ -17,7 +17,7 @@ export function printMiddleEarthBooks() {
     const bookHead = document.createElement("div");
     bookHead.classList.add("bookHead");
     bookHead.innerHTML = `
-      <h2>Books</h2>
+      <h2 id="books">Books</h2>
       <p class="bookP">A remembrance of the journey of the ring. Click on the book title to expand and see the chapters.</p>
     `;
     booksContainer.appendChild(bookHead);

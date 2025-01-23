@@ -5,8 +5,8 @@ export function renderNav() {
 
   navHeader.innerHTML = `
  
-  <div class="logo">
-  <nav class="nav" id="home">
+  <div class="logo" id="home">
+  <nav class="nav">
   <img src="./src/img/ringen-removebg-preview.png" alt="tree" />
   <h1>The Lord of the Rings</h1>
   <ul>
@@ -21,7 +21,7 @@ export function renderNav() {
     </div>
     <div class="hero">
     <p class="heroText">One ring to rule them all</p>
-    <button class="cta">Explore the journey
+    <button class="cta" id="about">Explore the journey
 </button>
   </div>
   <section class="about" id="about">
@@ -32,5 +32,12 @@ This showcase highlights some of Tolkien's incredible works. As a devoted fan, I
 
   `;
   document.body.appendChild(navHeader);
-}
 
+
+// add event listener to the button
+const ctaBtn = navHeader.querySelector(".cta") as HTMLButtonElement;
+ctaBtn.addEventListener("click", () => {
+  const aboutSection = document.querySelector(".about") as HTMLElement;
+  aboutSection.scrollIntoView({ behavior: "smooth" }); 
+});
+};

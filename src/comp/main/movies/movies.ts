@@ -91,7 +91,7 @@ const createMovieSlider = (movies: Movie[]) => {
     const imageUrl = movieImages[movie._id] || "src/img/default.jpg";
 
     movieCard.innerHTML = `
-      <img src="${imageUrl}" alt="${movie.name}" class="movie-image">
+      <img src="${imageUrl}" alt="${movie.name}" class="movie-image" id="movies">
       <h3>${movie.name}</h3>
       <p>${movie.runtimeInMinutes} minutes</p>
       <div class="movie-details">

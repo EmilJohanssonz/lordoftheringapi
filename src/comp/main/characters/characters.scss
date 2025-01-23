@@ -1,0 +1,49 @@
+@use "../../mixings/mixing\ font.scss" as *;
+
+.search-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 70px;
+
+  h2 {
+    @include bilbo-font;
+    font-size: 2.2rem;
+    margin-top: -40px;
+    text-align: center;
+  }
+
+  .search-input-container {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    padding-left: 22px;
+
+    .search-input {
+      background-color: #6D9A85;
+      width: 200px;
+      padding: 10px;
+      text-align: center;
+      border-radius: 8px;
+      border: none;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .search-button {
+      width: 33px;
+      height: 35px;
+      padding: 10px;
+      margin-left: 10px;
+      border-radius: 8px;
+      border: none;
+      background-image: url("src/img/treee-removebg-preview.png");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      background-color: #DFC32C;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+    }
+  }
+}
