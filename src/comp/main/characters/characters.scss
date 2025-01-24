@@ -6,6 +6,9 @@
   align-items: center;
   justify-content: center;
   margin-top: 70px;
+  @media (max-width: 768px) {
+    margin-top: 60px;
+  }
 
   h2 {
     @include bilbo-font;
@@ -21,7 +24,9 @@
     padding-left: 22px;
 
     .search-input {
-      background-color: #6D9A85;
+      @include para-font;
+      color: #fff;
+      background-color: #97A69F;
       width: 200px;
       padding: 10px;
       text-align: center;
@@ -30,20 +35,131 @@
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
 
+    input::placeholder {
+      color: #fff;
+      opacity: 0.8;
+    }
+
     .search-button {
       width: 33px;
       height: 35px;
       padding: 10px;
       margin-left: 10px;
       border-radius: 8px;
-      border: none;
-      background-image: url("src/img/treee-removebg-preview.png");
+      border: 1px solid #97A69F;
+      background-image: url("src/img/tree-logo.png");
       background-repeat: no-repeat;
       background-size: cover;
       background-position: center;
-      background-color: #DFC32C;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       cursor: pointer;
     }
+    @media (max-width: 768px) {
+      .search-input {
+        width: 150px;
+        font-size: 0.6rem;
+        margin-left: 0;
+        margin-top: -30px;
+        padding-left: 10px;
+      }
+      .search-button {
+        margin-top: -30px;
+        height: 33px;
+       
+      }
+      
+    }
+  }
+}
+
+.loading-img-glow {
+  width: 100px;
+  border: 3 int shadow;
+}
+
+.loading-img {
+  width: 100px;
+  height: 100px;
+  text-align: center;
+  margin-top: 20px;
+  animation: spin 2s linear infinite, dual-glow 2s ease-in-out infinite;
+  filter: drop-shadow(0 0 10px red) drop-shadow(0 0 20px orange) drop-shadow(0 0 30px crimson) drop-shadow(0 0 15px white) drop-shadow(0 0 30px lightblue) drop-shadow(0 0 45px skyblue) drop-shadow(0 0 60px white);
+  @keyframes dual-glow {
+    0%,
+    100% {
+      filter:
+        drop-shadow(0 0 10px red) drop-shadow(0 0 20px orange) drop-shadow(0 0 30px crimson) drop-shadow(0 0 15px white) drop-shadow(0 0 30px lightblue) drop-shadow(0 0 45px skyblue) drop-shadow(0 0 60px white);
+    }
+    50% {
+      filter:
+        drop-shadow(0 0 20px red) drop-shadow(0 0 30px orange) drop-shadow(0 0 40px crimson) drop-shadow(0 0 25px white) drop-shadow(0 0 40px lightblue) drop-shadow(0 0 60px skyblue) drop-shadow(0 0 80px white);
+    }
+  }
+
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+}
+
+
+
+.results-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.character-card {
+  background: linear-gradient(135deg, #f3f3f3, #e0e0e0);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 250px;
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.character-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.character-card h4 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 10px;
+  @include bilbo-font;
+}
+
+.character-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+}
+
+.character-card li {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 5px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 5px;
+  @include para-font;
+}
+
+
+
+@media (max-width: 768px) {
+  .character-card {
+    width: 65%;
   }
 }

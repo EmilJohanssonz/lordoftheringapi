@@ -2,6 +2,7 @@ import { headers } from "../../api/api";
 import { Character } from "types/Character";
 
 // Felkod error (status 429)
+// TODO:Flytta till en helper mapp?
 const fetchCharactersWithRetry = async (
   retries: number = 5,
   delay: number = 2000,
@@ -64,6 +65,8 @@ searchContainer.appendChild(searchInputContainer);
 searchContainer.appendChild(resultsContainer);
 
 // Min räddare!!! Funktion för att sätta in element efter ett annat element
+
+// TODO: Flytta till helper mapp.
 const insertAfter = (newElement: HTMLElement, targetElement: HTMLElement) => {
   targetElement.parentNode?.insertBefore(newElement, targetElement.nextSibling);
 };
@@ -92,7 +95,7 @@ export const displaySearchResults = async () => {
     return;
   }
 
-  resultsContainer.innerHTML = "<p>Loading...</p>";
+  resultsContainer.innerHTML = '<img src="src/img/image-removebg-preview.png" alt="searching" class="loading-img" />';
 
   const results = await searchCharacters(searchTerm);
   resultsContainer.innerHTML = ""; // Clear 
