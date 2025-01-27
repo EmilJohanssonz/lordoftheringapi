@@ -6,6 +6,7 @@
   align-items: center;
   justify-content: center;
   margin-top: 70px;
+
   @media (max-width: 768px) {
     margin-top: 60px;
   }
@@ -13,14 +14,14 @@
   h2 {
     @include bilbo-font;
     font-size: 2.2rem;
-    margin-top: -40px;
+    margin-top: -30px;
     text-align: center;
   }
 
   .search-input-container {
     display: flex;
     align-items: center;
-    margin-top: 20px;
+    margin-top: -10px;
     padding-left: 22px;
 
     .search-input {
@@ -54,20 +55,22 @@
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       cursor: pointer;
     }
+
     @media (max-width: 768px) {
       .search-input {
         width: 150px;
         font-size: 0.6rem;
         margin-left: 0;
-        margin-top: -30px;
+        margin-top: -10px;
         padding-left: 10px;
       }
+
       .search-button {
-        margin-top: -30px;
+        margin-top: -10px;
         height: 33px;
-       
+
       }
-      
+
     }
   }
 }
@@ -84,12 +87,15 @@
   margin-top: 20px;
   animation: spin 2s linear infinite, dual-glow 2s ease-in-out infinite;
   filter: drop-shadow(0 0 10px red) drop-shadow(0 0 20px orange) drop-shadow(0 0 30px crimson) drop-shadow(0 0 15px white) drop-shadow(0 0 30px lightblue) drop-shadow(0 0 45px skyblue) drop-shadow(0 0 60px white);
+
   @keyframes dual-glow {
+
     0%,
     100% {
       filter:
         drop-shadow(0 0 10px red) drop-shadow(0 0 20px orange) drop-shadow(0 0 30px crimson) drop-shadow(0 0 15px white) drop-shadow(0 0 30px lightblue) drop-shadow(0 0 45px skyblue) drop-shadow(0 0 60px white);
     }
+
     50% {
       filter:
         drop-shadow(0 0 20px red) drop-shadow(0 0 30px orange) drop-shadow(0 0 40px crimson) drop-shadow(0 0 25px white) drop-shadow(0 0 40px lightblue) drop-shadow(0 0 60px skyblue) drop-shadow(0 0 80px white);
@@ -116,10 +122,15 @@
   justify-content: center;
   gap: 20px;
   margin-top: 20px;
+  p {
+    @include bilbo-font;
+    font-size: 1.2rem;
+    text-align: center;
+  }
 }
 
 .character-card {
-  background: linear-gradient(135deg, #f3f3f3, #e0e0e0);
+  background: linear-gradient(135deg, #97A69F, #a2aaa6);
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   width: 250px;
@@ -149,11 +160,12 @@
 
 .character-card li {
   font-size: 0.9rem;
-  color: #666;
+  color: #000000;
   margin-bottom: 5px;
   border-bottom: 1px solid #ddd;
   padding-bottom: 5px;
   @include para-font;
+  word-break: break-all;
 }
 
 

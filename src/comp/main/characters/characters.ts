@@ -95,7 +95,7 @@ export const displaySearchResults = async () => {
     return;
   }
 
-  resultsContainer.innerHTML = '<img src="src/img/image-removebg-preview.png" alt="searching" class="loading-img" />';
+  resultsContainer.innerHTML = '<img src="src/img/image-removebg-preview.png" alt="loading img..." class="loading-img" />';
 
   const results = await searchCharacters(searchTerm);
   resultsContainer.innerHTML = ""; // Clear 
