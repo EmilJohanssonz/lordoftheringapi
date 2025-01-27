@@ -1,3 +1,5 @@
+//////////////BOOK/////////////////////
+
 // export const printMiddleEarthBooks = (order: string[]) => {
 //   const sortedBooks = [...middleEarthBooks].sort((a, b) => {
 //     return order.indexOf(a.id) - order.indexOf(b.id);
@@ -48,6 +50,8 @@
 
 // await fetchAllBooksAndChapters();
 
+//////////////MOVIE/////////////////////
+
 // const fetchMovies = async () => {
 //   try {
 //     const movieUrl = "https://the-one-api.dev/v2/movie";
@@ -72,6 +76,8 @@
 //   }
 // }
 // await fetchMovies();
+
+//////////////CHARACTER/////////////////////
 
 // const fetchCharacters = async () => {
 //   try {
@@ -101,3 +107,29 @@
 //   }
 // }
 // await fetchCharacters();
+
+//////////////QUOTE/////////////////////
+// const fetchQuotes = async () => {
+//   try {
+//     const quoteUrl = "https://the-one-api.dev/v2/quote";
+//     const quoteResponse = await fetch(quoteUrl, { headers });
+//     if (!quoteResponse.ok) {
+//       throw new Error(
+//         `Failed to fetch quotes. Status: ${quoteResponse.status}`,
+//       );
+//     }
+//     const quoteData = await quoteResponse.json();
+
+//     let quotes = quoteData.docs.slice(0, 5);
+
+//     quotes.forEach((quote: Quote) => {
+//       console.log(`Character: ${quote.character}`);
+//       console.log(`Movie: ${quote.movie}`);
+//       console.log(`- ${quote.dialog}`);
+//     });
+//   } catch (error) {
+//     console.error("Error:", error);
+//   }
+// };
+
+// await fetchQuotes();

@@ -3,7 +3,7 @@ import { Character } from "types/Character";
 
 // Felkod error (status 429)
 // TODO:Flytta till en helper mapp?
-const fetchCharactersWithRetry = async (
+export const fetchCharactersWithRetry = async (
   retries: number = 5,
   delay: number = 2000,
 ): Promise<Character[]> => {
@@ -95,10 +95,11 @@ export const displaySearchResults = async () => {
     return;
   }
 
-  resultsContainer.innerHTML = '<img src="src/img/image-removebg-preview.png" alt="loading img..." class="loading-img" />';
+  resultsContainer.innerHTML =
+    '<img src="src/img/image-removebg-preview.png" alt="loading img..." class="loading-img" />';
 
   const results = await searchCharacters(searchTerm);
-  resultsContainer.innerHTML = ""; // Clear 
+  resultsContainer.innerHTML = ""; // Clear
 
   if (results.length > 0) {
     results.forEach((character) => {
