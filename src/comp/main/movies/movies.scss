@@ -4,29 +4,36 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 60px;
+  margin-top: 40px;
+
+  h2 {
+    @include bilbo-font;
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: center;
+  }
 
   .button-container {
-display: flex;
-justify-content: space-around;
-flex-direction: row;
-gap: 200px;
-margin-bottom: 20px;
-margin-top: -75px;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    gap: 200px;
+    margin-bottom: 20px;
+    margin-top: -75px;
 
     button {
-        background-color: #333;
-          border: 1px solid #333;
-          color: #fff;
-          width: 50px; 
-          height: 50px; 
-          border-radius: 50%; 
-          display: flex;
-          align-items: center;
-          justify-content: center; 
-          padding: 0; 
-          font-size: 0.7rem;
-          cursor: pointer;
+      background-color: #333;
+      border: 1px solid #333;
+      color: #fff;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      font-size: 0.7rem;
+      cursor: pointer;
     }
   }
 
@@ -42,6 +49,7 @@ margin-top: -75px;
     display: flex;
     flex-direction: column;
     transition: transform 0.4s ease, box-shadow 0.4s ease;
+    margin-top: -30px;
 
     &:hover {
       box-shadow: 0 15px 25px rgba(0, 0, 0, 0.25);

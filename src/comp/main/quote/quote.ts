@@ -85,11 +85,15 @@ export const displayQuoteWithCharacterDetails = (
   `;
 };
 
-export const createDynamicElements = () => {
+export const createDynamicElements = async () => {
   const body = document.body;
 
   const container = document.createElement("div");
   container.id = "container";
+
+  const quoteHead = document.createElement("h3");
+  quoteHead.innerHTML = "Quote";
+  container.appendChild(quoteHead);
 
   // Skapa quote-container
   const quoteContainer = document.createElement("div");
@@ -101,16 +105,23 @@ export const createDynamicElements = () => {
   img.src = "src/img/jrr.jpg"; 
   img.alt = "J.R.R. Tolkien";
   img.className = "jrr-img";
-  imgContainer.appendChild(img);
+  const imgCaption = document.createElement("p");
+  imgCaption.innerHTML = "J.R.R. Tolkien";
+  
+
 
   container.appendChild(imgContainer);
+  imgContainer.appendChild(img);
+  imgContainer.appendChild(imgCaption);
   container.appendChild(quoteContainer);
   body.appendChild(container);
 
   const button = document.createElement("button");
   button.id = "generate-quote-button";
-  button.innerHTML = "Quote";
-  body.appendChild(button);
+  container.appendChild(button);
+
+  const { name, quote} =  await getRandomQuote();
+  displayQuoteWithCharacterDetails(name, quote);
 };
 
 export const setupGenerateQuoteButton = () => {

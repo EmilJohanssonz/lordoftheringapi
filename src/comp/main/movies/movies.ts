@@ -17,7 +17,7 @@ const fetchMoviesWithRetry = async (
       if (response.status === 429 && retries > 0) {
         console.warn("API rate limit exceeded. Retrying...");
         await new Promise((resolve) => setTimeout(resolve, delay));
-        return fetchMoviesWithRetry(retries - 1, delay * 2); // Exponential backoff
+        return fetchMoviesWithRetry(retries - 1, delay * 2); 
       }
       throw new Error(`Failed to fetch movies. Status: ${response.status}`);
     }
@@ -34,12 +34,12 @@ const fetchMoviesWithRetry = async (
 const fetchMovies = async (): Promise<Movie[]> => {
   if (cachedMovies) {
     console.log("Returning cached movies");
-    return cachedMovies; // Return cached data if available
+    return cachedMovies; 
   }
 
   try {
     const movies = await fetchMoviesWithRetry();
-    cachedMovies = movies; // Cache the fetched movies
+    cachedMovies = movies; 
     return movies;
   } catch (error) {
     console.error("Error fetching movies:", error);
@@ -79,6 +79,10 @@ const createMovieSlider = (movies: Movie[]) => {
 
   const movieContainer = document.createElement("div");
   movieContainer.className = "movie-container";
+
+  const movieHeader = document.createElement("h2");
+  movieHeader.textContent = "Movies";
+  movieContainer.appendChild(movieHeader);
 
   const movieCard = document.createElement("div");
   movieCard.className = "movie-card";

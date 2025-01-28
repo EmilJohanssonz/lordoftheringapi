@@ -1,6 +1,7 @@
 import { Book, Chapter, middleEarthBooks } from "../../../types/books";
 import { headers } from "../../api/api";
 
+
 // Funktion för att skriva ut de böcker som är definierade i middleEarthBooks
 export function printMiddleEarthBooks() {
   let booksContainer = document.querySelector(".books-container");
