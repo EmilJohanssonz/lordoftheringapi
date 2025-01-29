@@ -3,7 +3,7 @@
 ---
 
 ## 📖 Description
-<p>This project is a web application dedicated to the Lord Of The Rings. This app allows you to browse different book chapters, view detailed information about the movies, search for characters, see information about your favorite characters, and explore famous quotes from Tolkien.</p>
+This project is a web application dedicated to the Lord Of The Rings. This app allows you to browse different book chapters, view detailed information about the movies, search for characters, see information about your favorite characters, and explore famous quotes from Tolkien.
 
 ---
 
@@ -73,7 +73,7 @@ cd https://github.com/EmilJohanssonz/lordoftheringapi.git
 - # Install dependencies
   npm install or npm i
 
-  - # Start the development server
+- # Start the development server
     npm run dev
 
   ```
