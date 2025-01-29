@@ -98,6 +98,8 @@ cd https://github.com/EmilJohanssonz/lordoftheringapi.git
 This project is licensed under the MIT License.
 
 ---
+# Documentation
+https://the-one-api.dev/documentation
 
 💙 Created with love for the Tolkien universe!
 
