@@ -1,6 +1,7 @@
 import { headers } from "../../api/api";
 import { Quote } from "types/quotes";
 import { fetchCharactersWithRetry } from "../characters/characters";
+import "./quote.scss";
 
 // Funktion för att hämta citat med retries
 const fetchQuotesWithRetry = async (
@@ -33,8 +34,8 @@ export const getRandomQuote = async (): Promise<{
   quote: string;
 }> => {
   const [quotes, characters] = await Promise.all([
-    fetchQuotesWithRetry(),
-    fetchCharactersWithRetry(),
+    fetchQuotesWithRetry(), // funktion för att hämta citat med retries
+    fetchCharactersWithRetry(), // funktion för att hämta karaktärer med retries
   ]);
 
   if (quotes.length === 0) {
@@ -70,6 +71,7 @@ export const getRandomQuote = async (): Promise<{
   };
 };
 
+// returnera ett quote och karaktärs namn i en div
 export const displayQuoteWithCharacterDetails = (
   characterName: string,
   quote: string,

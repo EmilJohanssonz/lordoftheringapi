@@ -1,5 +1,6 @@
 import { headers } from "../../api/api";
 import { Character } from "types/Character";
+import "./characters.scss";
 
 // Felkod error (status 429)
 // TODO:Flytta till en helper mapp?
@@ -8,7 +9,7 @@ export const fetchCharactersWithRetry = async (
   delay: number = 2000,
 ): Promise<Character[]> => {
   try {
-    const response = await fetch("https://the-one-api.dev/v2/character", {
+    const response = await fetch("https://the-one-api.dev/v2/character?sort=name", {
       headers,
     });
     if (!response.ok) {

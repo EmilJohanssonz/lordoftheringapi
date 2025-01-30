@@ -30,3 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
   createDynamicElements(); 
   setupGenerateQuoteButton(); 
 });
+
+// footer
+import { renderFooter } from "./comp/nav-footer-section/footer/footer";
+document.addEventListener("DOMContentLoaded", renderFooter);

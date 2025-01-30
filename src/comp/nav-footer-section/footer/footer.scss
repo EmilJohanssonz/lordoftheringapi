@@ -1,0 +1,34 @@
+@use "../../mixings/mixing\ font.scss" as *;
+
+.footer-container {
+  width: 100%; 
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+} 
+footer {
+
+  background-color: #3C412D;
+  color: #fff;
+  width: 100%; 
+  position: fixed; 
+  padding: 10px 0;
+  bottom: 0px; 
+  left: 0; 
+  text-align: center; 
+  height: 50px;
+  img {
+    width: 30px;
+    height: 30px;
+    border-radius: 8px;
+  }
+  p {
+    @include bilbo-font;
+    font-size: 1.2rem;
+    margin: auto;
+  }
+}
+
+
+
+
