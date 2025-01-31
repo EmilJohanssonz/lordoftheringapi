@@ -1,7 +1,6 @@
 import { headers } from "../../api/api";
 import { Quote } from "types/quotes";
 import { fetchCharactersWithRetry } from "../characters/characters";
-import "./quote.scss";
 
 // Funktion för att hämta citat med retries
 const fetchQuotesWithRetry = async (

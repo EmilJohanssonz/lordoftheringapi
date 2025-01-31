@@ -1,20 +1,24 @@
 @use "../../mixings/mixing\ font.scss" as *;
+@use "../../variable/variable.scss" as *;
+@use "../../mixings/border.scss" as *;
+@use "../../mixings/flex.scss" as *;
+@use "../../mixings/mixing\ shadow.scss" as *;
+@use "../../mixings/width/height.scss" as *;
+
 
 .movie-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  @include flex-center;
   margin-top: 40px;
 
   h2 {
     @include bilbo-font;
-    font-size: 2.5rem;
+    font-size: $font-size-big;
     font-weight: bold;
     text-align: center;
   }
 
   .button-container {
-    display: flex;
+    @include display-flex;
     justify-content: space-around;
     flex-direction: row;
     gap: 200px;
@@ -22,15 +26,14 @@
     margin-top: -75px;
 
     button {
-      background-color: #333;
-      border: 1px solid #333;
-      color: #fff;
+      background-color: $blackground-color-black;
+      border: $blackground-color-black;
+      @include border-yes;
+      color: $font-color-white;
       width: 50px;
       height: 50px;
       border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      @include flex-center;
       padding: 0;
       font-size: 0.7rem;
       cursor: pointer;
@@ -46,7 +49,7 @@
     width: 700px;
     height: auto;
     margin-bottom: 20px;
-    display: flex;
+    @include display-flex;
     flex-direction: column;
     transition: transform 0.4s ease, box-shadow 0.4s ease;
     margin-top: -30px;
@@ -73,7 +76,7 @@
     }
 
     h3 {
-      font-size: 1.6rem;
+      font-size: $font-size-medium;
       @include bilbo-font;
     }
 

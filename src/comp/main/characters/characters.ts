@@ -1,6 +1,5 @@
 import { headers } from "../../api/api";
 import { Character } from "types/Character";
-import "./characters.scss";
 
 // Felkod error (status 429)
 // TODO:Flytta till en helper mapp?

@@ -1,26 +1,25 @@
 @use "../../mixings/mixing font.scss" as *;
+@use "../../variable/variable.scss" as *;
+@use "../../mixings/border.scss" as *;
+@use "../../mixings/flex.scss" as *;
 
 .navHeader {
-  display: flex;
+  @include display-flex;
   flex-direction: column;
-  color: #fff;
-
-
-
+  color: $font-color-white;
 
   .nav {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+   @include flex-center-no-column;
     height: 60px;
     width: 100%;
     position: fixed;
     top: 0;
     z-index: 10;
-    background-color: #333;
+    background-color: $blackground-color-black;
     opacity: 0.7;
+
     &.active {
-      display: flex;
+      @include display-flex;
     }
   }
 
@@ -31,13 +30,13 @@
 
   .nav h1 {
     @include bilbo-font;
-    color: #fff;
-    font-size: 2.5rem;
+    color: $font-color-white;
+    font-size: $font-size-big;
 
   }
 
   .nav ul {
-    display: flex;
+    @include display-flex;
     list-style: none;
     margin: 0;
     padding: 0;
@@ -48,18 +47,18 @@
   }
 
   .nav ul li a {
-    color: #fff;
+    color: $font-color-white;
     text-decoration: none;
     @include bilbo-font;
-    font-size: 1.8rem;
+    font-size: $font-size-medium;
   }
 
   .nav ul li a.active {
-    border-bottom: 2px solid #FFD700;
+    border-bottom: 2px solid $component-color-yellow;
   }
 
   .nav ul li a:hover {
-    color: #FFD700;
+    color: $component-color-yellow;
   }
 
   .logo {
@@ -69,20 +68,15 @@
     background-size: cover;
     width: 100%;
     height: 350px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include flex-center;
     position: relative;
   }
 }
 
 
 .hero {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+  @include flex-center;
+ 
   position: absolute;
   top: 35%;
   left: 50%;
@@ -91,46 +85,44 @@
 
 .heroText {
   @include bilbo-font;
-  color: #fff;
-  font-size: 2.5rem;
+  color: $font-color-white;
+  font-size: $font-size-big;
   margin: 0;
   margin-bottom: 20px;
 }
 
 .cta {
   padding: 10px 20px;
-  background-color: #FFD700;
-  border-radius: 8px;
-  border: none;
-  font-size: 1.5rem;
-  color: #333;
+  background-color: $component-color-yellow;
+  @include border-none;
+  font-size: $font-size-medium;
+  color: $blackground-color-black;
   cursor: pointer;
   @include bilbo-font;
   opacity: 0.7;
 }
 
 .cta:hover {
-  background-color: #FFD700;
-  color: #fff;
+  background-color: $component-color-yellow;
+  color: $font-color-white;
 }
 
 .about {
-  background-color: #8E8640;
+  background-color: $background-color-green;
   text-align: center;
 
   h2 {
-    color: #fff;
-    font-size: 2.5rem;
+    color: $font-color-white;
+    font-size: $font-size-big;
     margin: 0;
     padding: 10px;
     @include bilbo-font;
   }
 
   p {
-    font-family: monospace;
-    font-style: italic;
-    color: #fff;
-    font-size: 1.3rem;
+    @include para-font;
+    color: $font-color-white;
+    font-size: $font-size-small;
     margin: 0;
     padding: 10px;
   }
@@ -138,10 +130,10 @@
 }
 
 @media (max-width: 768px) {
-   .navHeader {
+  .navHeader {
     .nav {
       height: 50px;
-      display: flex;
+      @include display-flex;
       flex-direction: column;
       justify-content: center;
       top: 20px;
@@ -149,11 +141,11 @@
 
     }
 
-   
+
     .nav h1 {
-      font-size: 1.4rem;
+      font-size: $font-size-small;
       margin-top: 40px;
-      color: #000000;
+      color: $background-color-dark;
       font-weight: bold;
       margin: 0;
       margin-left: 0;
@@ -172,11 +164,11 @@
     }
 
     .heroText {
-      font-size: 1.6rem;
+      font-size: $font-size-small;
     }
 
     .cta {
-      font-size: 1.3rem;
+      font-size: $font-size-small;
     }
 
     .about h2 {
@@ -194,7 +186,7 @@
   .navHeader {
     .nav {
       height: 50px;
-      display: flex;
+      @include display-flex;
       flex-direction: column;
       justify-content: center;
       top: 20px;
@@ -204,9 +196,9 @@
     }
 
     .nav h1 {
-      font-size: 1.4rem;
+      font-size: $font-size-small;
       margin-top: 40px;
-      color: #000000;
+      color: $background-color-dark;
       font-weight: bold;
       margin: 0;
     }
@@ -224,11 +216,11 @@
     }
 
     .heroText {
-      font-size: 1.6rem;
+      font-size: $font-size-small
     }
 
     .cta {
-      font-size: 1.3rem;
+      font-size: $font-size-small;
     }
 
     .about h2 {

@@ -1,4 +1,3 @@
-import "./nav.scss";
 export function renderNav() {
   const navHeader = document.createElement("nav");
   navHeader.classList.add("navHeader");

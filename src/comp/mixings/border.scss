@@ -1,0 +1,9 @@
+@mixin border-none {
+  border: none;
+  border-radius: 8px;
+}
+
+@mixin border-yes {
+  border-radius: 8px;
+  border: 1px solid;
+}

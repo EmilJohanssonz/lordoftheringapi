@@ -1,10 +1,12 @@
 @use "../../mixings/mixing\ font.scss" as *;
+@use "../../variable/variable.scss" as *;
+@use "../../mixings/border.scss" as *;
+@use "../../mixings/flex.scss" as *;
+@use "../../mixings/mixing\ shadow.scss" as *;
+@use "../../mixings/width/height.scss" as *;
 
 .search-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  @include flex-center;
   margin-top: 70px;
 
   @media (max-width: 768px) {
@@ -13,31 +15,29 @@
 
   h2 {
     @include bilbo-font;
-    font-size: 2.2rem;
+    font-size: $font-size-big;
     margin-top: -30px;
     text-align: center;
   }
 
   .search-input-container {
-    display: flex;
-    align-items: center;
+    @include flex-center-no-column;
     margin-top: -10px;
     padding-left: 22px;
 
     .search-input {
       @include para-font;
-      color: #fff;
-      background-color: #97A69F;
+      color: $font-color-white;
+      background-color: $background-color-lightGreen;
       width: 200px;
       padding: 10px;
       text-align: center;
-      border-radius: 8px;
-      border: none;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      @include border-none;
+      @include shadow-quote;
     }
 
     input::placeholder {
-      color: #fff;
+      color: $font-color-white;
       opacity: 0.8;
     }
 
@@ -46,13 +46,13 @@
       height: 35px;
       padding: 10px;
       margin-left: 10px;
-      border-radius: 8px;
-      border: 1px solid #97A69F;
+      @include border-yes;
+      border: $background-color-lightGreen;
       background-image: url("src/img/tree-logo.png");
       background-repeat: no-repeat;
       background-size: cover;
       background-position: center;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      @include shadow-quote;
       cursor: pointer;
     }
 
@@ -86,7 +86,7 @@
   text-align: center;
   margin-top: 20px;
   animation: spin 2s linear infinite, dual-glow 2s ease-in-out infinite;
-  filter: drop-shadow(0 0 10px red) drop-shadow(0 0 20px orange) drop-shadow(0 0 30px crimson) drop-shadow(0 0 15px white) drop-shadow(0 0 30px lightblue) drop-shadow(0 0 45px skyblue) drop-shadow(0 0 60px white);
+  @include animation-shadow;
 
   @keyframes dual-glow {
 
@@ -117,11 +117,12 @@
 
 
 .results-container {
-  display: flex;
+  @include display-flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
   margin-top: 20px;
+
   p {
     @include bilbo-font;
     font-size: 1.2rem;
@@ -131,8 +132,8 @@
 
 .character-card {
   background: linear-gradient(135deg, #97A69F, #a2aaa6);
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  @include border-none;
+  @include shadow-quote;
   width: 250px;
   padding: 20px;
   text-align: center;
@@ -145,8 +146,8 @@
 }
 
 .character-card h4 {
-  font-size: 1.5rem;
-  color: #333;
+  font-size: $font-size-medium;
+  color: $blackground-color-black;
   margin-bottom: 10px;
   @include bilbo-font;
 }
@@ -160,7 +161,7 @@
 
 .character-card li {
   font-size: 0.9rem;
-  color: #000000;
+  color: $blackground-color-black;
   margin-bottom: 5px;
   border-bottom: 1px solid #ddd;
   padding-bottom: 5px;

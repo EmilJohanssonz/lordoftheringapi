@@ -1,11 +1,14 @@
 @use "../../mixings/mixing\ font.scss" as *;
+@use "../../variable/variable.scss" as *;
+@use "../../mixings/border.scss" as *;
+@use "../../mixings/flex.scss" as *;
+@use  "../../mixings/mixing\ shadow.scss" as *;
+@use "../../mixings/width/height.scss" as *;
 
 #container {
-  display: flex;
+  @include flex-center-no-column;
   flex-wrap: wrap;
-  justify-content: center;
   flex-direction: row;
-  align-items: center;
   gap: 20px;
   width: 100%;
   margin-top: 5px;
@@ -13,7 +16,7 @@
 
   h3 {
     @include bilbo-font;
-    font-size: 2.5rem;
+    font-size: $font-size-big;
     text-align: right;
     width: 100%;
     padding-right: 20%;
@@ -25,36 +28,30 @@
 #quote-container {
   order: 1;
   position: relative;
-  border-radius: 10px;
-  border: 1px solid #8b5a2b;
+  border: #8b5a2b;
+  @include border-none;
   width: 350px;
   height: 350px;
   padding: 20px;
   text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  @include flex-center;
   margin-top: -20px;
   background: linear-gradient(to bottom, #f2e1b3, #d1b08b);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   filter: sepia(40%) contrast(1.5);
-  box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.7),
-    0 0 25px rgba(0, 0, 0, 0.3);
+  @include shadow-quote-inset;
 
 
   @media (max-width: 768px) {
     width: 70%;
     height: auto;
-    min-height: unset;
-    max-height: unset;
+    @include unset;
     order: 1;
     margin-left: 42px;
 
   }
 
   .quote-card {
-    
- 
     h2 {
       @include para-font;
       word-break: break-word;
@@ -62,34 +59,29 @@
       width: 50%;
       max-height: fit-content;
       margin: 0 auto;
-      color: black;
+      color: $background-color-dark;
     }
 
     p {
       @include bilbo-font;
       font-weight: bold;
-      font-size: 1.6rem;
+      font-size: $font-size-medium;
       text-align: center;
-      color: black;
-
+      color: $background-color-dark;
     }
   }
 }
 
 #img-container {
   order: 2;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  @include flex-center;
   padding: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  @include shadow-quote;
 
   p {
     @include bilbo-font;
-    font-size: 1.6rem;
-    color: black;
-
+    font-size: $font-size-medium;
+    color: $background-color-dark;
   }
 
   @media (max-width: 768px) {
@@ -101,7 +93,7 @@
 .jrr-img {
   width: 100%;
   height: 200px;
-  border-radius: 8px;
+  @include border-none;
 }
 
 #generate-quote-button {
@@ -117,12 +109,12 @@
   width: 50px;
   height: 50px;
   cursor: pointer;
-  position:relative;
+  position: relative;
   // animation: spin 6s linear infinite;
-  filter: drop-shadow(0 0 10px red) drop-shadow(0 0 20px orange) drop-shadow(0 0 30px crimson) drop-shadow(0 0 15px white) drop-shadow(0 0 30px lightblue) drop-shadow(0 0 45px skyblue) drop-shadow(0 0 60px white);
+@include animation-shadow;
   @media (max-width: 768px) {
     margin-top: 80px;
   }
-  
+
 
 }

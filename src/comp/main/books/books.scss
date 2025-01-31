@@ -1,14 +1,15 @@
 @use "../../mixings/mixing font.scss" as *;
 @use "../../mixings/mixing shadow.scss" as *;
-// TODO: Skapa mer mixings
-// TODO: Skapa varaibler för scss
+@use "../../variable/variable.scss" as *;
+@use "../../mixings/border.scss" as *;
+@use "../../mixings/flex.scss" as *;
 
 .books-container {
-  display: flex;
+  @include display-flex;
+  @include border-none;
   flex-wrap: nowrap;
   margin-top: 25px;
   justify-content: flex-end;
-  border-radius: 8px;
 
   // För små skärmar, använd grid-layout
   @media (max-width: 768px) {
@@ -23,24 +24,21 @@
 .bookHead {
   flex: 1;
   text-align: left;
-  display: flex;
+  @include display-flex;
   flex-direction: column;
   padding-left: 105px;
   font-size: 1.8rem;
   margin-top: -20px;
   @include bilbo-font;
-  border-radius: 8px;
-
-
-
+  @include border-none;
 
   p {
     font-size: 1.6rem;
-    color: #333;
     margin: -20px 0 0;
     text-align: left;
     width: 45%;
     word-break: break-word;
+    color: $blackground-color-black;
 
     @media (max-width:1200px) {
       width: 60%;
@@ -50,14 +48,14 @@
 
     @media (max-width: 768px) {
       width: 100%;
-      font-size: 1.4rem;
+      font-size: $font-size-small;
       text-align: center;
     }
   }
 
   @media (max-width: 768px) {
     padding-left: 20px;
-    font-size: 1.6rem;
+    font-size: $font-size-medium;
     grid-column: 1;
     grid-row: 1;
     text-align: center;
@@ -66,7 +64,7 @@
 
 .bookies {
   flex: 2;
-  display: flex;
+  @include display-flex;
   flex-direction: column;
   gap: 10px;
   max-width: 300px;
@@ -104,17 +102,15 @@
 
 
 .book {
-  background-color: #97A69F;
-  border-radius: 8px;
+  background-color: $background-color-lightGreen;
   padding: 10px;
   @include shadow;
-  display: flex;
-  flex-direction: column;
+  @include flex-center;
   max-width: 250px;
-  justify-content: center;
   margin-left: 0;
   cursor: pointer;
   margin-bottom: 10px;
+  @include border-none;
 
   @media (max-width: 768px) {
     max-width: 100%;
@@ -126,9 +122,9 @@
 }
 
 .bookTitle {
-  font-size: 1.6rem;
+  font-size: $font-size-medium;
   font-weight: bold;
-  color: #000;
+  color: $blackground-color-black;
   cursor: pointer;
   margin: 0 0 5px;
   text-align: center;
@@ -140,7 +136,7 @@
   }
 
   @media (max-width: 768px) {
-    font-size: 1.4rem;
+    font-size: $font-size-small;
   }
 }
 
@@ -149,10 +145,9 @@
   padding: 10px;
   margin: 0;
   background-color: #606c68;
-  border-radius: 6px;
-  color: #fff;
+  @include border-none;
+  color: $font-color-white;
   display: none;
-
   @include para-font;
 
   li {

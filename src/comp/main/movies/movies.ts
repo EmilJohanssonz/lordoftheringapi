@@ -1,6 +1,7 @@
 import { Movie } from "types/movies";
 import { headers } from "../../api/api";
-import "./movies.scss";
+
+
 let cachedMovies: Movie[] | null = null; // Cache for storing movie data
 
 // Retry-funktion för att hantera API-fel (status 429) med exponential backoff

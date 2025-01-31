@@ -1,34 +1,35 @@
 @use "../../mixings/mixing\ font.scss" as *;
+@use "../../variable/variable.scss" as *;
+@use "../../mixings/border.scss" as *;
+@use "../../mixings/flex.scss" as *;
+@use "../../mixings/mixing\ shadow.scss" as *;
+@use "../../mixings/width/height.scss" as *;
 
 .footer-container {
-  width: 100%; 
-  display: flex;
-  justify-content: center; 
-  align-items: center;
-} 
-footer {
+  width: 100%;
+  @include flex-center;
+}
 
+footer {
   background-color: #3C412D;
-  color: #fff;
-  width: 100%; 
-  position: fixed; 
+  color: $font-color-white;
+  width: 100%;
+  position: fixed;
   padding: 10px 0;
-  bottom: 0px; 
-  left: 0; 
-  text-align: center; 
+  bottom: 0px;
+  left: 0;
+  text-align: center;
   height: 50px;
+
   img {
     width: 30px;
     height: 30px;
-    border-radius: 8px;
+    @include border-none;
   }
+
   p {
     @include bilbo-font;
-    font-size: 1.2rem;
+    font-size: $font-size-small;
     margin: auto;
   }
 }
-
-
-
-
