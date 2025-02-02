@@ -75,6 +75,8 @@ cd https://github.com/EmilJohanssonz/lordoftheringapi.git
 
 - # Start the development server
     npm run dev
+- # Sign up to access the key
+    https://the-one-api.dev/
 
   ```
 
