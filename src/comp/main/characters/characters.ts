@@ -43,7 +43,6 @@ searchContainer.appendChild(resultsContainer);
 
 // Min räddare!!! Funktion för att sätta in element efter ett annat element
 
-// TODO: Flytta till helper mapp.
 const insertAfter = (newElement: HTMLElement, targetElement: HTMLElement) => {
   targetElement.parentNode?.insertBefore(newElement, targetElement.nextSibling);
 };
@@ -74,6 +73,8 @@ export const displaySearchResults = async () => {
 
   resultsContainer.innerHTML =
     '<img src="src/img/image-removebg-preview.png" alt="loading img..." class="loading-img" />';
+    // skapa delay för sökresultat
+    await new Promise((resolve) => setTimeout(resolve, 2000));
 
   const results = await searchCharacters(searchTerm);
   resultsContainer.innerHTML = ""; // Clear
