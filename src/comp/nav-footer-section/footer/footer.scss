@@ -7,8 +7,6 @@
 
 .footer-container {
   width: 100%;
- @include flex-center;
-  
 }
 
 footer {
@@ -21,16 +19,23 @@ footer {
   left: 0;
   height: 50px;
   text-align: center;
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  gap: 10px; 
 
   img {
     width: 30px;
     height: 30px;
     @include border-none;
+    margin-bottom: -8px;
   }
 
   p {
+    padding-right: 4px;
     @include bilbo-font;
     font-size: $font-size-small;
-    margin: auto;
+    margin: 0; 
+    display: inline-block;
   }
 }

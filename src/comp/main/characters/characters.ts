@@ -2,9 +2,12 @@ import { headers } from "../../api/api";
 import { Character } from "types/Character";
 import { fetchCharactersWithRetry } from "../../api/helper/helper-character";
 
-
-
 // Funktion för att söka efter karaktärer
+//Använder filtter för att filtera ut de karakäter som inte matchar.
+// Vi konverterar också sökordet (searchTerm) till gemener (små bokstäver) för att säkerställa att jämförelsen är case-insensitive.
+// includes() kollar om namnet på karaktären (nu i små bokstäver) innehåller det angivna sökordet (också i små bokstäver).
+// Om det gör det, returneras true och karaktären behålls i den filtrerade arrayen. Om inte, returneras false och karaktären tas bort.
+
 const searchCharacters = async (searchTerm: string): Promise<Character[]> => {
   const characters = await fetchCharactersWithRetry();
   return characters.filter((character) =>
@@ -41,7 +44,10 @@ searchContainer.appendChild(searchTitle);
 searchContainer.appendChild(searchInputContainer);
 searchContainer.appendChild(resultsContainer);
 
-// Min räddare!!! Funktion för att sätta in element efter ett annat element
+// Funktionen insertAfter infogar ett nytt HTML element efter ett redan existerade elementet.
+// insertBefore används för att sätta ditt de nya element efter target-elementet.
+// nextSibling refererar till det element som kommer direkt efter det givna elementet (targetElement) i samma förälder.
+// Om targetElement är det sista barnet i sin förälder, kommer nextSibling att vara null.
 
 const insertAfter = (newElement: HTMLElement, targetElement: HTMLElement) => {
   targetElement.parentNode?.insertBefore(newElement, targetElement.nextSibling);
@@ -63,6 +69,7 @@ export const insertSearchAndResultsContainers = () => {
 };
 
 // Funktion för att visa sökresultat
+// Använder trim att ta bort white-space från.
 export const displaySearchResults = async () => {
   const searchTerm = searchInput.value.trim();
 
@@ -73,8 +80,9 @@ export const displaySearchResults = async () => {
 
   resultsContainer.innerHTML =
     '<img src="src/img/image-removebg-preview.png" alt="loading img..." class="loading-img" />';
-    // skapa delay för sökresultat
-    await new Promise((resolve) => setTimeout(resolve, 2000));
+  // skapa delay för sökresultat
+  // Resolve funktionen gör att väntar på att promise är klar och sedan skickar ett argument tillbaka.
+  await new Promise((resolve) => setTimeout(resolve, 2000));
 
   const results = await searchCharacters(searchTerm);
   resultsContainer.innerHTML = ""; // Clear

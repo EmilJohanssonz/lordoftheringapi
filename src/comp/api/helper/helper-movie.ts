@@ -1,7 +1,8 @@
 import { Movie } from "../../../types/movies";
 import { headers } from "../../api/api";
 
-
+//cachedMovies används för att lagra filmdata efter den hämtats,
+//  så att vi kan undvika onödiga API-anrop och använda den från cashe istället.
 let cachedMovies: Movie[] | null = null; // Cache for storing movie data
 
 // Retry-funktion för att hantera API-fel (status 429) med exponential backoff
@@ -18,7 +19,7 @@ export const fetchMoviesWithRetry = async (
       if (response.status === 429 && retries > 0) {
         console.warn("API rate limit exceeded. Retrying...");
         await new Promise((resolve) => setTimeout(resolve, delay));
-        return fetchMoviesWithRetry(retries - 1, delay * 2); 
+        return fetchMoviesWithRetry(retries - 1, delay * 2);
       }
       throw new Error(`Failed to fetch movies. Status: ${response.status}`);
     }
@@ -31,16 +32,19 @@ export const fetchMoviesWithRetry = async (
   }
 };
 
-// Fetch movie bara om det inte finns någon cachad data
+// Använder cach för att minska antalet API-anrop.
+// Om filmdata redan finns i cachet returneras den direkt.
+// Sedan om det inte finns någon cachad data hämtas filmdata från API:et.
+
 export const fetchMovies = async (): Promise<Movie[]> => {
   if (cachedMovies) {
     console.log("Returning cached movies");
-    return cachedMovies; 
+    return cachedMovies;
   }
 
   try {
     const movies = await fetchMoviesWithRetry();
-    cachedMovies = movies; 
+    cachedMovies = movies;
     return movies;
   } catch (error) {
     console.error("Error fetching movies:", error);

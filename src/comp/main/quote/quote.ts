@@ -4,6 +4,7 @@ import { fetchCharactersWithRetry } from "../../api/helper/helper-character";
 import { fetchQuotesWithRetry } from "../../api/helper/helper-quote";
 
 // Funktion för att hämta ett slumpmässigt citat med karaktärens namn
+// pick används för att bara hämta typerna character och dialog,och inte de andra typerna från Quotes.
 export const getRandomQuote = async (): Promise<
   Pick<Quote, "character" | "dialog">
 > => {

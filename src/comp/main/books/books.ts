@@ -7,6 +7,7 @@ export function printMiddleEarthBooks() {
   let booksContainer = document.querySelector(".books-container");
 
   // Om ingen .books-container finns på sidan, skapa en ny
+  // om anropet lyckades så skapar vi en ny div med en klass och lägger till den i bodyn.
   if (!booksContainer) {
     booksContainer = document.createElement("div");
     booksContainer.classList.add("books-container");
@@ -27,7 +28,11 @@ export function printMiddleEarthBooks() {
   const bookies = document.createElement("div");
   bookies.classList.add("bookies");
 
+  // Sotera mina skapade böcker i rätt ordning.
   const order = ["4", "1", "2", "3"];
+
+  // Sortera böckerna i ordningen som de är listade i order-arrayen
+  // där id är en sträng och vi använder indexOf för att hitta rätt ordning.
 
   const sortedBooks = middleEarthBooks.sort((a, b) => {
     return order.indexOf(a.id) - order.indexOf(b.id);

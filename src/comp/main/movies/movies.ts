@@ -66,16 +66,21 @@ const createMovieSlider = (movies: Movie[]) => {
 
   const buttonContainer = document.createElement("div");
   buttonContainer.className = "button-container";
+ 
+  // eftersom negativ index inte funger så lägger vi till följande :
+  // Om currentIndex = 0, och vi subtraherar 1 och lägger till 5, får vi (0 - 1 + 5) % 5 = 4
+  // % denna gör så att index värderna ligger allitd inom de giltiga indexvärdena för listan,
+  //  och att om indexet går utanför gränserna, det återgår till början (eller slutet) av listan.
 
   const prevButton = document.createElement("button");
-  prevButton.textContent = "Previous";
+  prevButton.textContent = "<";
   prevButton.onclick = () => {
     currentIndex = (currentIndex - 1 + movies.length) % movies.length;
     renderMovie(currentIndex);
   };
 
   const nextButton = document.createElement("button");
-  nextButton.textContent = "Next";
+  nextButton.textContent = ">";
   nextButton.onclick = () => {
     currentIndex = (currentIndex + 1) % movies.length;
     renderMovie(currentIndex);

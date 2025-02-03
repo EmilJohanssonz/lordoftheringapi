@@ -4,10 +4,10 @@ export function renderFooter() {
   footerContainer.classList.add("footer-container");
   footerContainer.innerHTML = `
     <div class="footer">
-      <a href="https://github.com/EmilJohanssonz/lordoftheringapi" target="_blank">
-        <img src="./src/img/github.png" alt="github" />
-      </a>
-      <p>Created by Emil Håkanzon</p>
+    <p>Created by Emil Håkanzon</p>
+    <a href="https://github.com/EmilJohanssonz/lordoftheringapi" target="_blank">
+    <img src="./src/img/github.png" alt="github" />
+    </a>
     </div>
   `;
   document.body.appendChild(footerContainer);
