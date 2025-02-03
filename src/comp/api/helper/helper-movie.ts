@@ -31,7 +31,7 @@ export const fetchMoviesWithRetry = async (
   }
 };
 
-// Fetch movies only if they are not cached
+// Fetch movie bara om det inte finns någon cachad data
 export const fetchMovies = async (): Promise<Movie[]> => {
   if (cachedMovies) {
     console.log("Returning cached movies");
