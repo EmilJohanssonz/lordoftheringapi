@@ -36,6 +36,10 @@ This project is built using:
 │   ├── comp/
 │   │   ├── api/
 │   │   │   └── api.ts
+|   |   |   |──/ helper
+|   |   |     |── helper-character.ts
+|   |   |     |── helper-movie.ts
+|   |   |     |── helper-quote.ts
 │   │   ├── main/
 │   │   │   ├── books/
 │   │   │   │   ├── books.ts
@@ -49,11 +53,18 @@ This project is built using:
 │   │   │   └── quote/
 │   │   │       ├── quote.ts
 │   │   │       └── quote.scss
+|   |   |   |── mixings/
+|   |   |     |── width/
+|   |   |     |── height.scss
+|   |   |   |── flex.scss
+|   |   |   |── border.scss
+|   |   |   |── mixing font.scss
+|   |   |   |── mixing shadow.scss
 │   │   ├── nav/footer
 │   │   │   ├── ├── nav/ 
 │   │   │            ├── nav.ts 
 │   │   │            └── nav.scss 
-│   │   ├──    –└── footer/
+│   │   ├────────── footer/
 │   │                 ├── footer.ts
 │   │                 └── footer.scss
 
