@@ -3,8 +3,11 @@ import { Quote } from "types/quotes";
 import { fetchCharactersWithRetry } from "../../api/helper/helper-character";
 import { fetchQuotesWithRetry } from "../../api/helper/helper-quote";
 
+//TODO: quote
+
 // Funktion för att hämta ett slumpmässigt citat med karaktärens namn
 // pick används för att bara hämta typerna character och dialog,och inte de andra typerna från Quotes.
+
 export const getRandomQuote = async (): Promise<
   Pick<Quote, "character" | "dialog">
 > => {
@@ -90,6 +93,10 @@ export const createDynamicElements = async () => {
   const button = document.createElement("button");
   button.id = "generate-quote-button";
   container.appendChild(button);
+
+  // funktionen returenar ett objekt som innehåller en karaktär och dialog
+  // sedan lagras detta i en variabel och visas i displayQuoteWithCharacterDetails
+  // sedan skickar jag variablerna som argument till displayQuoteWithCharacterDetails
 
   const { character, dialog } = await getRandomQuote();
   displayQuoteWithCharacterDetails(character, dialog);

@@ -1,6 +1,8 @@
 import { headers } from "../../api/api";
 import { Character } from "types/Character";
 
+//TODO: hepler karaktär
+
 // Felkod error (status 429)
 // retries = antal försök
 // delay = tid i ms mellan försöken

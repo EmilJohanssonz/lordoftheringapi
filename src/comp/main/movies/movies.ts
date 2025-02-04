@@ -2,6 +2,7 @@ import { Movie } from "types/movies";
 import { headers } from "../../api/api";
 import { fetchMovies, fetchMoviesWithRetry } from "../../api/helper/helper-movie";
 
+//TODO: filmer
 
 // Bilder baserade på filmens ID
 const movieImages: { [key: string]: string } = {
@@ -105,6 +106,10 @@ const createMovieSlider = (movies: Movie[]) => {
     document.body.appendChild(movieContainer);
   }
 };
+
+// funktionen sortmovies tar emot listan från movies och soterar.
+// sedan använder jag filter för att kolla så alla filmer har ett _id som finns i movieOrder.
+//include returnerar true om filmen finns i movieOrder.
 
  export const renderAllMovies = async () => {
   const movies = await fetchMovies();

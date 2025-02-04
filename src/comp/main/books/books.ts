@@ -1,13 +1,17 @@
 import { Book, Chapter, middleEarthBooks } from "../../../types/books";
 import { headers } from "../../api/api";
 
+//TODO: böcker
+
 
 // Funktion för att skriva ut de böcker som är definierade i middleEarthBooks
+
 export function printMiddleEarthBooks() {
   let booksContainer = document.querySelector(".books-container");
 
   // Om ingen .books-container finns på sidan, skapa en ny
   // om anropet lyckades så skapar vi en ny div med en klass och lägger till den i bodyn.
+  
   if (!booksContainer) {
     booksContainer = document.createElement("div");
     booksContainer.classList.add("books-container");

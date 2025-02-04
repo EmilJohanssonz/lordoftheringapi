@@ -26,7 +26,8 @@ export function renderNav() {
   <section class="about" id="about">
   <h2>About This Project</h2>
   <p>J.R.R. Tolkien's The Lord of the Rings and the expansive legendarium he crafted are truly extraordinary.
-This showcase highlights some of Tolkien's incredible works. As a devoted fan, I hold them in the highest regard. If you're curious about the design behind this showcase, feel free to explore my GitHub account!
+This showcase highlights some of Tolkien's incredible works. As a devoted fan, I hold them in the highest regard. If you're curious about the design behind this showcase, feel free to explore my <a href="https://github.com/EmilJohanssonz/lordoftheringapi">GitHub account!</a>
+
 </p>
 
   `;

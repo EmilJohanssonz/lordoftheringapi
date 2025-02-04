@@ -1,8 +1,11 @@
 import { Movie } from "../../../types/movies";
 import { headers } from "../../api/api";
 
+// TODO: helper-filmer
+
 //cachedMovies används för att lagra filmdata efter den hämtats,
 //  så att vi kan undvika onödiga API-anrop och använda den från cashe istället.
+
 let cachedMovies: Movie[] | null = null; // Cache for storing movie data
 
 // Retry-funktion för att hantera API-fel (status 429) med exponential backoff

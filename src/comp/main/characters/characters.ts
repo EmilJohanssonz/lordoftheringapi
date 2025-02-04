@@ -2,9 +2,13 @@ import { headers } from "../../api/api";
 import { Character } from "types/Character";
 import { fetchCharactersWithRetry } from "../../api/helper/helper-character";
 
+//todo: karaktärer
+
 // Funktion för att söka efter karaktärer
 //Använder filtter för att filtera ut de karakäter som inte matchar.
-// Vi konverterar också sökordet (searchTerm) till gemener (små bokstäver) för att säkerställa att jämförelsen är case-insensitive.
+// Vi konverterar också sökordet (searchTerm) till genener(små bokstäver)
+//  för att säkerställa att jämförelsen är case-insensitive.
+
 // includes() kollar om namnet på karaktären (nu i små bokstäver) innehåller det angivna sökordet (också i små bokstäver).
 // Om det gör det, returneras true och karaktären behålls i den filtrerade arrayen. Om inte, returneras false och karaktären tas bort.
 
@@ -70,6 +74,7 @@ export const insertSearchAndResultsContainers = () => {
 
 // Funktion för att visa sökresultat
 // Använder trim att ta bort white-space från.
+
 export const displaySearchResults = async () => {
   const searchTerm = searchInput.value.trim();
 
@@ -80,7 +85,8 @@ export const displaySearchResults = async () => {
 
   resultsContainer.innerHTML =
     '<img src="src/img/image-removebg-preview.png" alt="loading img..." class="loading-img" />';
-  // skapa delay för sökresultat
+  
+    // skapa delay för sökresultat
   // Resolve funktionen gör att väntar på att promise är klar och sedan skickar ett argument tillbaka.
   await new Promise((resolve) => setTimeout(resolve, 2000));
 

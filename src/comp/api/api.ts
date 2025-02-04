@@ -1,3 +1,4 @@
+// TODO: api nyckel
 // // API-konfiguration
 // skapar en headers-variabel som innehåller en nyckel för att kunna använda API:et
 // Använder header sen i fetch-anropen för att kunna hämta data från API:et

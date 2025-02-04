@@ -1,3 +1,5 @@
+//todo: type böcker
+
 export interface Book {
   id: string;
   name: string;
