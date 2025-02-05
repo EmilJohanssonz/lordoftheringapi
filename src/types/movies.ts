@@ -1,5 +1,6 @@
 //todo: type filmer
 export interface Movie {
+  [x: string]: any;
   id: string;
   name: string;
   runtimeInMinutes: number;
