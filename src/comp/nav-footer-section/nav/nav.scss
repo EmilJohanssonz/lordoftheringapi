@@ -40,7 +40,7 @@
     @include display-flex;
     list-style: none;
     margin: 0;
-    padding: 0;
+    padding: 5px;
   }
 
   .nav ul li {
@@ -144,7 +144,7 @@
       justify-content: center;
       top: 5px;
       position: fixed;
-padding: 10px;
+
 
     }
 
@@ -200,7 +200,7 @@ padding: 10px;
       width: 100%;
       position: fixed;
 
-padding: 10px;
+
     }
 
     .nav h1 {
