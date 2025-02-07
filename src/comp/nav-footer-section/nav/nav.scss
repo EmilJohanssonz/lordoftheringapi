@@ -142,7 +142,7 @@
       @include display-flex;
       flex-direction: column;
       justify-content: center;
-      top: 20px;
+      top: 10px;
       position: fixed;
 
     }
@@ -195,8 +195,8 @@
       @include display-flex;
       flex-direction: column;
       justify-content: center;
-      top: 20px;
-      width: 96%;
+      top: 10px;
+      width: 100%;
       position: fixed;
 
     }
