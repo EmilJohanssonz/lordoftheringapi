@@ -142,8 +142,9 @@
       @include display-flex;
       flex-direction: column;
       justify-content: center;
-      top: 10px;
+      top: 5px;
       position: fixed;
+padding: 5px;
 
     }
 
@@ -195,10 +196,11 @@
       @include display-flex;
       flex-direction: column;
       justify-content: center;
-      top: 10px;
+      top: 5px;
       width: 100%;
       position: fixed;
 
+padding: 5px;
     }
 
     .nav h1 {
