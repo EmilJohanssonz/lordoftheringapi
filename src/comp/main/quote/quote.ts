@@ -78,7 +78,7 @@ export const createDynamicElements = async () => {
   const imgContainer = document.createElement("div");
   imgContainer.id = "img-container";
   const img = document.createElement("img");
-  img.src = "src/img/jrr.jpg";
+  img.src = "/img/jrr.jpg";
   img.alt = "J.R.R. Tolkien";
   img.className = "jrr-img";
   const imgCaption = document.createElement("p");

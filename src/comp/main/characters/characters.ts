@@ -84,7 +84,7 @@ export const displaySearchResults = async () => {
   }
 
   resultsContainer.innerHTML =
-    '<img src="src/img/image-removebg-preview.png" alt="loading img..." class="loading-img" />';
+    '<img src="/img/image-removebg-preview.png" alt="loading img..." class="loading-img" />';
   
     // skapa delay för sökresultat
   // Resolve funktionen gör att väntar på att promise är klar och sedan skickar ett argument tillbaka.

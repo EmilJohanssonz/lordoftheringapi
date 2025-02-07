@@ -6,7 +6,7 @@ export function renderNav() {
  
   <div class="logo" id="home">
   <nav class="nav">
-  <img src="./src/img/ringen-removebg-preview.png" alt="tree" />
+        <img src="/img/ringen-removebg-preview.png" alt="tree" />
   <h1>The Lord of the Rings</h1>
   <ul>
   <li><a href="#home">Home</a></li>
@@ -33,11 +33,10 @@ This showcase highlights some of Tolkien's incredible works. As a devoted fan, I
   `;
   document.body.appendChild(navHeader);
 
-
-// add event listener to the button
-const ctaBtn = navHeader.querySelector(".cta") as HTMLButtonElement;
-ctaBtn.addEventListener("click", () => {
-  const aboutSection = document.querySelector(".about") as HTMLElement;
-  aboutSection.scrollIntoView({ behavior: "smooth" }); 
-});
-};
+  // add event listener to the button
+  const ctaBtn = navHeader.querySelector(".cta") as HTMLButtonElement;
+  ctaBtn.addEventListener("click", () => {
+    const aboutSection = document.querySelector(".about") as HTMLElement;
+    aboutSection.scrollIntoView({ behavior: "smooth" });
+  });
+}

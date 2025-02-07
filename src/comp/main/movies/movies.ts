@@ -6,12 +6,12 @@ import { fetchMovies, fetchMoviesWithRetry } from "../../api/helper/helper-movie
 
 // Bilder baserade på filmens ID
 const movieImages: { [key: string]: string } = {
-  "5cd95395de30eff6ebccde58": "src/img/hobbitt.jpg", // The Hobbit: An Unexpected Journey
-  "5cd95395de30eff6ebccde59": "src/img/hobbit2.jpg", // The Hobbit: The Desolation of Smaug
-  "5cd95395de30eff6ebccde5a": "src/img/hobbit3.jpg", // The Hobbit: The Battle of the Five Armies
-  "5cd95395de30eff6ebccde5c": "src/img/lordofrings.jpg", // The Fellowship of the Ring
-  "5cd95395de30eff6ebccde5b": "src/img/ring2.jpg", // The Two Towers
-  "5cd95395de30eff6ebccde5d": "src/img/ring3.jpg", // The Return of the King
+  "5cd95395de30eff6ebccde58": "/img/hobbitt.jpg", // The Hobbit: An Unexpected Journey
+  "5cd95395de30eff6ebccde59": "/img/hobbit2.jpg", // The Hobbit: The Desolation of Smaug
+  "5cd95395de30eff6ebccde5a": "/img/hobbit3.jpg", // The Hobbit: The Battle of the Five Armies
+  "5cd95395de30eff6ebccde5c": "/img/lordofrings.jpg", // The Fellowship of the Ring
+  "5cd95395de30eff6ebccde5b": "/img/ring2.jpg", // The Two Towers
+  "5cd95395de30eff6ebccde5d": "s/img/ring3.jpg", // The Return of the King
 };
 
 // Ordning för filmerna

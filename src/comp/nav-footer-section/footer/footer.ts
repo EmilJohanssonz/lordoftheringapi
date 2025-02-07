@@ -6,7 +6,7 @@ export function renderFooter() {
     <div class="footer">
     <p>Created by Emil Håkanzon</p>
     <a href="https://github.com/EmilJohanssonz/lordoftheringapi" target="_blank">
-    <img src="./src/img/github.png" alt="github" />
+    <img src="/img/github.png" alt="github" />
     </a>
     </div>
   `;
